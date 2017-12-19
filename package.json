@@ -1,0 +1,23 @@
+{
+  "name": "tsama",
+  "version": "1.0.0",
+  "description": "A Vue.js digital pet using the Tsamagotchi npm package.",
+  "dependencies": {
+    "tsamagotchi": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "browserify js/TsamagotchiBrowserify.js -o js/bundle.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artusvranken/tsama.git"
+  },
+  "author": "Artus Vranken",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/artusvranken/tsama/issues"
+  },
+  "homepage": "https://github.com/artusvranken/tsama#readme"
+}
