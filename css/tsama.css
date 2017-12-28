@@ -1,0 +1,66 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+:root
+{
+    --tsama-app-width: 400px;
+    --tsama-app-height: 600px;
+}
+
+@keyframes move-background
+{
+    from {background-position: 0px 0px;}
+    to {background-position: -100px 0px;}
+}
+
+html
+{
+    width: 100%;
+    height: 100%;
+}
+
+body
+{
+    position: relative;
+    
+    width: 100%;
+    height: 100%;
+    
+    min-width: var(--tsama-app-width);
+    min-height: var(--tsama-app-height);
+}
+
+#tsama-background-container
+{
+    position: absolute;
+    z-index: 0;
+    
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    
+    background-image: url('../img/bg.png');
+    background-repeat: repeat; 
+    
+    animation-name: move-background;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+#tsama-app-container
+{
+    position: absolute;
+    z-index: 1;
+    
+    width: var(--tsama-app-width);
+    height: var(--tsama-app-height);
+    
+    left: calc(50% - var(--tsama-app-width) / 2);
+    top: calc(50% - var(--tsama-app-height) / 2);
+    
+    background-color: firebrick;
+}
