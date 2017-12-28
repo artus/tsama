@@ -53,8 +53,13 @@ function loadTsamagotchi()
     }
     else
     {
-        throw new Error("LocalStorage not supported.");
+        createTsamagotchi("Cutie");
     }
 }
 
-createTsamagotchi("Cutie");
+var app = new Vue({
+  el: '#tsama-app-container',
+  data: {
+    tsama: loadTsamagotchi()
+  }
+});

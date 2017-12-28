@@ -4,10 +4,16 @@
     <head>
         <meta charset="utf-8">
         
+        <!-- Google fonts -->
+        <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+        
+        <!-- font awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        
         <!-- custom css file -->
         <link rel="stylesheet" type="text/css" href="css/tsama.css">
         
-        <title>Tsamagotchi</title>
+        <title>Tsama</title>
     </head>
     
     <body>
@@ -18,7 +24,19 @@
         <!-- container for the app -->
         <div id="tsama-app-container">
            
+            <div id="tsama-name">{{tsama.name}}</div>
             <img id="tsama-image" alt="The visual representation of the Tsamagotchi." src="img/tsama.png">
+            
+            <div id="tsama-age" class="tsama-text-field"><i class="fa fa-clock-o" aria-hidden="true"></i> {{tsama.age}}</div>
+            <div id="tsama-birthdate" class="tsama-text-field"><i class="fa fa-birthday-cake" aria-hidden="true"></i> {{tsama.birthdate.toDateString()}}</div>
+            
+            <div id="tsama-stats-container">
+                
+                <div id="tsama-health-container" class="tsama-stat-container"></div>
+                <div id="tsama-food-container" class="tsama-stat-container"></div>
+                <div id="tsama-happiness-container" class="tsama-stat-container"></div>
+                
+            </div>
             
         </div>
         
