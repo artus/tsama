@@ -18,12 +18,16 @@
     </head>
     
     <body>
-      
+     
         <!-- container for the moving background -->
         <div id="tsama-background-container"></div>
+        
+        <a href="https://github.com/artusvranken"><img style="position: absolute; z-index: 4; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
        
         <!-- container for the app -->
         <div id="tsama-app-container">
+          
+            <div id="tsama-redo-button" v-on:click="newTsama"></div>
            
             <div id="tsama-name">{{tsama.name}}</div>
             <img id="tsama-image" alt="The visual representation of the Tsamagotchi." src="img/tsama.png">
@@ -35,17 +39,17 @@
                 
                 <div id="tsama-health-container" class="tsama-stat-container" v-bind:title="'health: ' + tsama.health">
                     <div id="tsama-health-button" class="tsama-stat-button" v-on:click="tsama.heal(5)"></div>
-                    <div id="tsama-health-bar" class="tsama-stat-bar"></div>
+                    <div id="tsama-health-bar" class="tsama-stat-bar" v-bind:style="{ width: healthWidth() + 'px'}"></div>
                 </div>
                 
                 <div id="tsama-food-container" class="tsama-stat-container" v-bind:title="'satiety: ' + tsama.satiety">
                     <div id="tsama-food-button" class="tsama-stat-button" v-on:click="tsama.feed(5)"></div>
-                    <div id="tsama-food-bar" class="tsama-stat-bar"></div>
+                    <div id="tsama-food-bar" class="tsama-stat-bar" v-bind:style="{ width: satietyWidth() + 'px'}"></div>
                 </div>
                 
                 <div id="tsama-happiness-container" class="tsama-stat-container" v-bind:title="'happiness: ' + tsama.happiness">
                     <div id="tsama-happiness-button" class="tsama-stat-button" v-on:click="tsama.love(5)"></div>
-                    <div id="tsama-happiness-bar" class="tsama-stat-bar"></div>
+                    <div id="tsama-happiness-bar" class="tsama-stat-bar" v-bind:style="{ width: happinessWidth() + 'px'}"></div>
                 </div>
                 
             </div>

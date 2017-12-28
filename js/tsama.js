@@ -32,8 +32,10 @@ function loadTsamagotchi()
     {
         let yourTsamagotchiString = localStorage.tsamagotchi;
         
-        if (typeof yourTsamagotchiString !== 'undefined')
+        if (yourTsamagotchiString != 'undefined')
         {
+            try
+            {
             let yourTsamagotchiDO = JSON.parse(yourTsamagotchiString);
             let yourTsamagotchi = new tsama.Tsamagotchi();
             
@@ -47,6 +49,10 @@ function loadTsamagotchi()
             yourTsamagotchi._foodLimit = yourTsamagotchi._foodLimit;
             
             return yourTsamagotchi;
+            } catch (error)
+            {
+                return createTsamagotchi();
+            }
         }
         
         return new tsama.Tsamagotchi(DEFAULT_NAME, DEFAULT_FOOD_LIMIT);
@@ -60,11 +66,37 @@ function loadTsamagotchi()
 var app = new Vue({
   el: '#tsama-app-container',
   data: {
-    tsama: loadTsamagotchi()
+    tsama: loadTsamagotchi(),
+    maxBarWidth: 260
+  },
+  methods: {
+      newTsama : function ()
+      {
+          this.tsama = createTsamagotchi();
+      },
+      healthWidth : function()
+      {
+          let toReturn = this.tsama.health / 100 * this.maxBarWidth;
+          if (toReturn > this.maxBarWidth) return this.maxBarWidth;
+          return toReturn;
+      },
+      satietyWidth : function()
+      {
+          let toReturn = this.tsama.satiety / 100 * this.maxBarWidth;
+          if (toReturn > this.maxBarWidth) return this.maxBarWidth;
+          return toReturn;
+      },
+      happinessWidth : function()
+      {
+          let toReturn = this.tsama.happiness / 100 * this.maxBarWidth;
+          if (toReturn > this.maxBarWidth) return this.maxBarWidth;
+          return toReturn;
+      }
   }
 });
 
 app.tsama.mature();
 setInterval(function() {
     app.tsama.mature();
+    saveTsamagotchi(app.tsama);
 }, 5000);

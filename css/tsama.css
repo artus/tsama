@@ -177,21 +177,22 @@ body
     cursor: pointer;
 }
 
-.tsama-stat-button:hover
-{
-}
-
 .tsama-stat-bar
 {
     float: left;
     
-    width: calc(100% - 60px);
     height: 10px;
     
     margin-left: 20px;
     margin-top: 15px;
     
-    background-color: green;
+    background-color: limegreen;
+    border-right: 2px solid green;
+    border-bottom: 2px solid green;
+    
+    box-sizing: border-box;
+    
+    transition: 0.5s;
 }
 
 #tsama-health-button
@@ -237,4 +238,28 @@ body
 #tsama-happiness-button:active
 {
     background-image: url('../img/heart-3.png');
+}
+
+#tsama-redo-button
+{
+    width: 40px;
+    height: 40px;
+    
+    position: absolute;
+    
+    left: 0;
+    top: 0;
+    
+    background-image: url('../img/redo-1.png');
+    cursor: pointer;
+}
+
+#tsama-redo-button:hover
+{
+    background-image: url('../img/redo-2.png');
+}
+
+#tsama-redo-button:active
+{
+    background-image: url('../img/redo-3.png');
 }
