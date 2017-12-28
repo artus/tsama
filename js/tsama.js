@@ -63,3 +63,8 @@ var app = new Vue({
     tsama: loadTsamagotchi()
   }
 });
+
+app.tsama.mature();
+setInterval(function() {
+    app.tsama.mature();
+}, 5000);

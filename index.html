@@ -12,6 +12,7 @@
         
         <!-- custom css file -->
         <link rel="stylesheet" type="text/css" href="css/tsama.css">
+        <link rel="icon" href="img/favico.png" type="image/png">
         
         <title>Tsama</title>
     </head>
@@ -27,14 +28,25 @@
             <div id="tsama-name">{{tsama.name}}</div>
             <img id="tsama-image" alt="The visual representation of the Tsamagotchi." src="img/tsama.png">
             
-            <div id="tsama-age" class="tsama-text-field"><i class="fa fa-clock-o" aria-hidden="true"></i> {{tsama.age}}</div>
-            <div id="tsama-birthdate" class="tsama-text-field"><i class="fa fa-birthday-cake" aria-hidden="true"></i> {{tsama.birthdate.toDateString()}}</div>
+            <div id="tsama-age" class="tsama-text-field" v-bind:title="'age: ' + tsama.age"><i class="fa fa-clock-o" aria-hidden="true"></i> {{tsama.age}}</div>
+            <div id="tsama-birthdate" class="tsama-text-field" v-bind:title="'birthdate: ' + tsama.birthdate.toDateString()"><i class="fa fa-birthday-cake" aria-hidden="true"></i> {{tsama.birthdate.toDateString()}}</div>
             
             <div id="tsama-stats-container">
                 
-                <div id="tsama-health-container" class="tsama-stat-container"></div>
-                <div id="tsama-food-container" class="tsama-stat-container"></div>
-                <div id="tsama-happiness-container" class="tsama-stat-container"></div>
+                <div id="tsama-health-container" class="tsama-stat-container" v-bind:title="'health: ' + tsama.health">
+                    <div id="tsama-health-button" class="tsama-stat-button" v-on:click="tsama.heal(5)"></div>
+                    <div id="tsama-health-bar" class="tsama-stat-bar"></div>
+                </div>
+                
+                <div id="tsama-food-container" class="tsama-stat-container" v-bind:title="'satiety: ' + tsama.satiety">
+                    <div id="tsama-food-button" class="tsama-stat-button" v-on:click="tsama.feed(5)"></div>
+                    <div id="tsama-food-bar" class="tsama-stat-bar"></div>
+                </div>
+                
+                <div id="tsama-happiness-container" class="tsama-stat-container" v-bind:title="'happiness: ' + tsama.happiness">
+                    <div id="tsama-happiness-button" class="tsama-stat-button" v-on:click="tsama.love(5)"></div>
+                    <div id="tsama-happiness-bar" class="tsama-stat-bar"></div>
+                </div>
                 
             </div>
             
