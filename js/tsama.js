@@ -108,17 +108,14 @@ var app = new Vue({
           {
               if (this.tsama.health < 50) 
               {
-                  if (this.imgToggle) return this.images["sad1"];
-                  return this.images["sad2]"];
+                  return (this.imgToggle) ? this.images["sad1"] : this.images["sad2"];
               }
               if (this.tsama.happiness < 50 || this.tsama.satiety < 50)
               {
-                  if (this.imgToggle) return this.images["mad1"];
-                  return this.images["mad2"];
+                  return (this.imgToggle) ? this.images["mad1"] : this.images["mad2"];
               }
               
-              if (this.imgToggle) return this.images["happy1"];
-              return this.images["happy2"];
+              return (this.imgToggle) ? this.images["happy1"] : this.images["happy2"];
           }
           return this.images["dead"];
       }

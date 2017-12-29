@@ -38,17 +38,17 @@
             <div id="tsama-stats-container">
                 
                 <div id="tsama-health-container" class="tsama-stat-container" v-bind:title="'health: ' + tsama.health">
-                    <div id="tsama-health-button" class="tsama-stat-button" v-on:click="tsama.heal(5)"></div>
+                    <div id="tsama-health-button" class="tsama-stat-button" v-on:click="tsama.heal(10)"></div>
                     <div id="tsama-health-bar" class="tsama-stat-bar" v-bind:style="{ width: healthWidth() + 'px'}"></div>
                 </div>
                 
                 <div id="tsama-food-container" class="tsama-stat-container" v-bind:title="'satiety: ' + tsama.satiety">
-                    <div id="tsama-food-button" class="tsama-stat-button" v-on:click="tsama.feed(5)"></div>
+                    <div id="tsama-food-button" class="tsama-stat-button" v-on:click="tsama.feed(10)"></div>
                     <div id="tsama-food-bar" class="tsama-stat-bar" v-bind:style="{ width: satietyWidth() + 'px'}"></div>
                 </div>
                 
                 <div id="tsama-happiness-container" class="tsama-stat-container" v-bind:title="'happiness: ' + tsama.happiness">
-                    <div id="tsama-happiness-button" class="tsama-stat-button" v-on:click="tsama.love(5)"></div>
+                    <div id="tsama-happiness-button" class="tsama-stat-button" v-on:click="tsama.love(10)"></div>
                     <div id="tsama-happiness-bar" class="tsama-stat-bar" v-bind:style="{ width: happinessWidth() + 'px'}"></div>
                 </div>
                 
