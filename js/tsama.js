@@ -104,17 +104,21 @@ var app = new Vue({
       },
       currentImage : function()
       {
-          this.imgToggle = !this.imgeToggle;
-          
           if (this.tsama.isAlive)
           {
               if (this.tsama.health < 50) 
               {
-                  return this.images["sad1"];
+                  if (this.imgToggle) return this.images["sad1"];
+                  return this.images["sad2]"];
               }
-              if (this.tsama.happiness < 50) return this.images["mad1"];
+              if (this.tsama.happiness < 50 || this.tsama.satiety < 50)
+              {
+                  if (this.imgToggle) return this.images["mad1"];
+                  return this.images["mad2"];
+              }
               
-              return this.images["happy1"];
+              if (this.imgToggle) return this.images["happy1"];
+              return this.images["happy2"];
           }
           return this.images["dead"];
       }
@@ -129,3 +133,7 @@ setInterval(function() {
     app.tsama.mature();
     saveTsamagotchi(app.tsama);
 }, 5000);
+
+setInterval(function() {
+    app.imgToggle = !app.imgToggle;
+}, 1000);
