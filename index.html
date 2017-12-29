@@ -30,7 +30,7 @@
             <div id="tsama-redo-button" v-on:click="newTsama"></div>
            
             <div id="tsama-name">{{tsama.name}}</div>
-            <img id="tsama-image" alt="The visual representation of the Tsamagotchi." src="img/tsama.png">
+            <div id="tsama-image" alt="The visual representation of the Tsamagotchi." v-bind:style="{ backgroundImage: 'url(' + currentImage() + ')'}"></div>
             
             <div id="tsama-age" class="tsama-text-field" v-bind:title="'age: ' + tsama.age"><i class="fa fa-clock-o" aria-hidden="true"></i> {{tsama.age}}</div>
             <div id="tsama-birthdate" class="tsama-text-field" v-bind:title="'birthdate: ' + tsama.birthdate.toDateString()"><i class="fa fa-birthday-cake" aria-hidden="true"></i> {{tsama.birthdate.toDateString()}}</div>
